@@ -1,15 +1,14 @@
-import React  from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Problem6 = () => {
   const [numbers, setNumbers] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
   const handleAdd = () => {
-  const num =inputValue;
+    const num = parseInt(inputValue);
 
-    if (num < 0 || num >=50) {
-      alert("Input needs to be between 1 and 50");
+    if (isNaN(num) || num < 0 || num > 50) {
+      alert("Input needs to be between 0 and 50");
     } else {
       setNumbers([...numbers, num]); 
     }
@@ -23,7 +22,7 @@ const Problem6 = () => {
         type="number"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Enter number between 1 to 50"
+        placeholder="Enter number between 0 and 50"
       />
       <button
         onClick={handleAdd}
